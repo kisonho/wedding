@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { RootView } from './app.root';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'wedding';
+export class AppComponent extends RootView {
+    
 }
