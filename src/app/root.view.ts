@@ -1,5 +1,5 @@
 import { LanguageController } from "./controller/language.controller";
-import { OnInit } from '@angular/core';
+import { OnInit, Injectable } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,6 +14,7 @@ export interface RootViewDelegate {
  * root view controller
  * @implements RootViewDelegate, OnInit
  */
+@Injectable()
 export class RootViewController implements RootViewDelegate, OnInit {
     // declare protected members
     protected resources: any
@@ -22,7 +23,11 @@ export class RootViewController implements RootViewDelegate, OnInit {
     protected titleService: Title
     protected route: ActivatedRoute
 
-    // constructor
+    /**
+     * constructor
+     * @param titleService 
+     * @param route 
+     */
     constructor(titleService: Title, route: ActivatedRoute) {
         this.titleService = titleService
         this.route = route
@@ -42,14 +47,14 @@ export class RootViewController implements RootViewDelegate, OnInit {
      * @returns Promise
      */
     protected setCurrentLanguage(language: string) {
-        this.languageController = new LanguageController(this, language)
-        this.languageController.loadLanguageResources()
+        this.languageController.setCurrentLanguage(language)
     }
 
     /**
      * angular on init
      */
     public ngOnInit() {
+        this.languageController = new LanguageController(this, window.navigator.language)
         this.setCurrentLanguage(window.navigator.language)
     }
 }

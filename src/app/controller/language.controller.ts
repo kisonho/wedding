@@ -40,6 +40,15 @@ export class LanguageController {
     }
 
     /**
+     * current language setter
+     * @param currentLanguage 
+     */
+    public setCurrentLanguage(targetLanguage: string) {
+        this.currentLanguage = this.getLanguage(targetLanguage)
+        this.loadLanguageResources()
+    }
+
+    /**
      * get language resources
      */
     public loadLanguageResources() {
@@ -49,8 +58,7 @@ export class LanguageController {
         }
 
         // load resources file
-        let MSG_FILE = "~/app/language/" + this.currentLanguage + ".json"
-        let RESOURCES = require(MSG_FILE)
+        let RESOURCES = require("src/app/lanuage/" + this.currentLanguage + ".json")
         this.delegate.setResources(RESOURCES)
     }
 
@@ -59,10 +67,10 @@ export class LanguageController {
      * @param language 
      */
     private getLanguage(language: string): Language {
-        switch (language) {
+        switch (language.split("-")[0]) {
             case "en":
                 return Language.EN
-            case "cn":
+            case "zh":
                 return Language.CN
             default:
                 return Language.NOT_SUPPORTED

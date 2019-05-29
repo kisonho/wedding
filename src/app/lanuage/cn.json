@@ -1,4 +1,24 @@
 {
-    "title": "婚礼邀请",
-    "converImg": "resources/cover_cn.jpg"
+    "TITLE": "邀请信",
+    "content": {
+        "HEAD": "你好 ",
+        "COMMA": "，",
+        "CONTENT": "",
+        "ADDRESS": "地址：Addison Oaks Buhl Estate (1480 W Romeo Rd, Oakland, MI  48367)",
+        "TIME": "时间：welcome guests from 4:50 PM (ceremony starting from 5:20 PM)",
+        "ACCEPT": "如果你接受我们的邀请，请点击下面的按钮并填写我们的宾客信息："
+    },
+    "form": {
+        "BUTTON_TXT": "宾客信息表",
+        "LINK": "https://docs.google.com/forms/d/e/1FAIpQLSfsnI9uO8Co54_gbWfmYWWPRwHqpHcrAYtt33CImXCpD9mSUQ/viewform?usp=sf_link"
+    },
+    "pictures": {
+        "COVER": "assets/cover_cn.png",
+        "BACKGROUND": "assets/background_cn.png"
+    },
+    "supportLanguage": {
+        "TITLE": "Click to view English version",
+        "LANGUAGE": "EN",
+        "LANGUAGE_CODE": "en-US"
+    }
 }
