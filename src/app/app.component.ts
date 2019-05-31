@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { RootViewController } from './root.view';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import * as $ from 'jquery';
+
+import { RootViewController } from './root.view';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +14,12 @@ export class AppComponent extends RootViewController {
     // declare members
     private name: any
     private bookView: HTMLElement
-    private coverView: HTMLElement
-    private isCoverFliped: boolean
+    private isOpen: boolean
 
     // constructor
     public constructor(titleService: Title, route: ActivatedRoute) {
         super(titleService, route)
-        this.isCoverFliped = false
+        this.isOpen = false
     }
 
     /**
@@ -34,14 +35,12 @@ export class AppComponent extends RootViewController {
      */
     public bookOnClick() {
         // check if cover fliped
-        if(this.isCoverFliped){
-            this.coverView.style.transform = "rotateY(0deg)";
-            this.bookView.style.left = "50%";
-            this.isCoverFliped = false;
+        if(this.isOpen){
+            $(this.bookView).addClass('open')
+            this.isOpen = false;
         } else {
-            this.bookView.style.left = "65%";
-            this.coverView.style.transform = "rotateY(-180deg)";
-            this.isCoverFliped = true;
+            $(this.bookView).removeClass('open')
+            this.isOpen = true;
         }
     }
 
@@ -55,12 +54,17 @@ export class AppComponent extends RootViewController {
 
         // get element
         this.bookView = document.getElementById("bookView")
-        this.coverView = document.getElementById("coverView")
+
+        // check browser
+        if (!! window["chrome"]) {
+            $(this.bookView).addClass("chrome")
+        }
 
         // read parameters
         this.route.paramMap.subscribe(params => {
             // check if params contains name
-            var containsName = params.get('containsName') != null
+            var containsName = params.get('firstName') != null
+            console.log(containsName)
 
             // if contains name
             if (containsName) {

@@ -1,53 +1,60 @@
 <!-- <audio controls autoplay>
     <source src="~/app/resources/mp3/Approaching%20Nirvana%20-%20You.mp3">
 </audio> -->
-<div>Hello world</div>
+<!-- <div>Hello world</div> -->
 <div id="background" class="wall">
     <div id="bookView">
         <div class="page">
-            <div class="container">
-                <div class="col-xs-12 center">
-                    <h1>{{resources.TITLE}}</h1>
+            <div class="container text-center">
+                <div class="col-xs-12">
+                    <h3>{{resources.TITLE}}</h3>
                 </div>
-                <hr>
-                <div class="col-xs-12" [hidden]='!name'>
+                <!-- <div class="col-xs-12" [hidden]='!name'>
                     <span>{{resources.content.HEAD}}</span>
                     <span>{{name?.prefix}}</span>
                     <span>{{name?.firstName}} {{name?.lastName}}{{resources.content.COMMA}}</span>
-                </div>
-                <div class="col-xs-12" [hidden]="name">
-                    <span>{{resources.content.HEAD_NO_NAME}}</span>
-                </div>
+                </div> -->
+                <hr class="date-up">
                 <div class="col-xs-12">
-                    <span>{{resources.content.CONTENT}}</span>
+                    <h1>
+                        <span>{{resources.content.MONTH}} </span>
+                        <span class="large">{{resources.content.DAY}}</span>
+                        <span> {{resources.content.YEAR}}</span>
+                    </h1>
                 </div>
-                <br>
+                <hr class="date-down">
                 <div class="col-xs-12">
                     <span>{{resources.content.ADDRESS}}</span>
                     <br>
+                    <span>{{resources.content.ADDRESS_DETAIL}}</span>
+                </div>
+                <div>
                     <span>{{resources.content.TIME}}</span>
                 </div>
                 <br>
                 <div class="col-xs-12">
-                    <span>{{resources.content.ACCEPT}}</span>
+                    <h2>{{resources.content.ACCEPT}}</h2>
+                    <small>{{resources.content.RSVP}}</small>
                 </div>
-                <hr>
-                <div class="col-xs-12">
-                    <a class="btn btn-link float-right cursor-ptr" [title]="resources.supportLanguage.TITLE" (click)="setCurrentLanguage(resources.supportLanguage.LANGUAGE_CODE)">
-                        {{resources.supportLanguage.LANGUAGE}}
-                    </a>
-                    <a class="btn btn-danger" [href]="resources.form.LINK">
+                <br>
+                <div class="col-xs-12 text-center">
+                    <a class="btn btn-lg btn-danger" [href]="resources.form.LINK">
                         <i class="fas fa-file-contract"></i>
                         <span> {{resources.form.BUTTON_TXT}}</span>
                     </a>
                 </div>
             </div>
             <div class="page contentBackground">
-                <img [src]="resources.pictures.BACKGROUND" class="d-block d-md-none d-lg-none">
+                <img [src]="resources.pictures.BACKGROUND" class="d-block d-md-none d-lg-none d-xl-none">
             </div>
         </div>
-        <div id="coverView" class="d-none d-md-block page" (click)="bookOnClick()">
-            <!-- <img [src]="resources.pictures.COVER" height="1102" width="780"/> -->
+        <div id="coverView" class="d-none d-md-block d-lg-block d-xl-block page" (click)="bookOnClick()">
+            <img [src]="resources.pictures.COVER"/>
         </div>
     </div>
 </div>
+
+<a class="btn btn-link cursor-ptr d-block" [title]="resources.supportLanguage.TITLE"
+    (click)="setCurrentLanguage(resources.supportLanguage.LANGUAGE_CODE)">
+    {{resources.supportLanguage.LANGUAGE}}
+</a>

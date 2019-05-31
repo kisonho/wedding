@@ -30,7 +30,7 @@ div#background{
     animation: dd 100s linear infinite;
     background-size: cover;
 }
-div#midground{
+/* div#midground{
     background: url(resources/midground.png);
     z-index: 1;
     -webkit-animation: cc 100s linear infinite;
@@ -52,7 +52,7 @@ div#top{
     -webkit-animation: dd 100s linear infinite;
     -o-animation: dd 100s linear infinite;
     animation: da 100s linear infinite;
-}
+} */
 @-webkit-keyframes cc {
     from{
         background-position: 0 0;
@@ -128,22 +128,29 @@ body{
 }
 #bookView{
     position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -15.625em;
-    margin-top: -32em;
-    height: 37.5em;
-    width: 46.875em;
+    left: auto;
+    right: 20%;
+    top: 5em;
+    width: 40em;
+    height: 56.51em;
     transform-style: preserve-3d;
     transform:perspective(1000px) rotateX(60deg) rotateY(0deg);
     transition: 1s;
 }
+#bookView.chrome {
+    right: 30%;
+    top: 2.5em;
+    height: 25em;
+    width: 31.25em;
+}
 #bookView:hover{
     transform:perspective(1000px) rotateX(0deg) rotateY(0deg);
 }
+#bookView.open {
+    right: 10%;
+    transition: 1s;
+}
 #bookView .page{
-    height: 37.5em;
-    width: 46.875em;
     position: absolute;
     left: 0;
     top: 0;
@@ -153,37 +160,101 @@ body{
     color: black;
 }
 #bookView .contentBackground {
-    width: 48.75em;
-    height: 68.875em;
+    width: 40em;
+    height: 56.51em;
     z-index: 1;
+    box-shadow: 0.25em 0.25em 2.5em #444;
     background-image: url(resources/background_en.png);
-    background-size: 48.75em 68.875em;
+    background-size: 40em 56.51em;
     background-repeat: no-repeat;
 }
+#bookView.chrome .contentBackground {
+    width: 32.5em;
+    height: 45.91em;
+    background-size: 32.5em 45.91em;
+}
 #bookView #coverView {
-    width: 48.75em;
-    height: 68.875em;
+    width: 40em;
+    height: 56.51em;
     z-index: 3;
+    box-shadow: 0.25em 0.25em 2.5em #444;
     background-image: url(resources/cover_en.png);
-    background-size: 48.75em 68.875em;
+    background-size: 40em 56.51em;
     background-repeat: no-repeat;
+}
+#bookView #coverView img {
+    width: 40em;
+    height: 56.51em;
+}
+#bookView.chrome #coverView {
+    width: 32.5em;
+    height: 45.91em;
+    background-size: 32.5em 45.91em;
+}
+#bookView.chrome #coverView img {
+    width: 32.5em;
+    height: 45.91em;
 }
 #bookView #coverView:hover {
     cursor: pointer;
+}
+#bookView.open #coverView {
+    transform: rotateY(-180deg);
+    box-shadow: -0.25em 0.25em 2.5em #444;
 }
 .page .container {
     z-index: 2;
     position: relative;
     font-size: 2em;
+    font-family: cursive;
     color: #BDAC88;
-    padding-top: 7em;
+    padding-top: 3em;
+    padding-left: 1em;
     text-align: left;
-    font-family: 
+}
+.container hr { 
+    height: 0.1em;
+    width: 100%;
+    border: none;
+    border-top: medium double #BDAC88;
+    color: #BDAC88;
+    text-align: center;
+}
+.container hr:after {
+    content: "♥︎";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1em;
+    padding: 0 0.25em;
+    background: #fafafa;
+}
+.chrome .page .container {
+    font-size: 1.5em;
+}
+.container h1 {
+    font-size: 1.5em;
+    vertical-align: center;
+    font-family: fantasy;
+}
+.container h1 .large {
+    font-size: 1.5em;
+}
+.container h3 {
+    font-weight: 800;
+}
+.container .date-up {
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+}
+.container .date-down {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
 }
 #bookView:after{
     content: "";
     position: absolute;
-    width: 37.5em;
+    width: 32em;
     height: 0.625em;
     background: rgba(0,0,0,0.8);
     left:4.6875em;
@@ -192,40 +263,49 @@ body{
     border-radius: 70%;
     box-shadow: 0px 0px 25px 15px rgba(0,0,0,0.8);
 }
+#bookView.chrome::after {
+    width: 25em;
+}
+.btn.btn-link {
+    color: red;
+    position: absolute;
+    top: 2em;
+    margin-left: 2em;
+    font-weight: 800;
+    font-size: 1.5em;
+}
+.btn.btn-link:hover {
+    color: #a00
+}
 .cursor-ptr {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     div#background {
         background: none;
     }
 
     #bookView{
+        overflow-x: hidden;
         position: relative;
-        top: 0;
-        left:0;
-        margin-left: 0;
-        margin-top: 0;
-        height: 100%;
-        width: 100%;
+        top: 0 !important;
+        left: 0 !important;
+        margin: 0;
+        height: 100% !important;
+        width: 100% !important;
         transform:perspective(1000px) rotateX(0deg) rotateY(0deg);
         transition: 1s;
     }
 
-    #bookView #coverView {
-        width: 100%;
-        height: auto;
-        z-index: 3;
-        background-image: url(resources/cover_en.png);
-        background-size: 48.75em 68.875em;
-        background-repeat: no-repeat;
+    #bookView.open {
+        left: 0
     }
 
     #bookView:after{
         content: "";
         position: absolute;
-        width: 100%;
+        width: 100% !important;
         height: 0.625em;
         background: rgba(0,0,0,0.8);
         left:4.6875em;
@@ -236,14 +316,14 @@ body{
     }
 
     #bookView .contentBackground {
-        width: auto;
+        width: auto !important;
         background-size: 100%;
     }
 
     #bookView .contentBackground img {
-        width: 100%;
-        height: auto;
-        min-height: 
+        width: auto !important;
+        height: 100% !important;
+        min-height: 102vh;
     }
 
     #bookView .page{
@@ -261,7 +341,19 @@ body{
     #bookView .page .container {
         margin: 0;
         font-size: 1.25em;
-        padding: 1em;
+        padding: 0;
         max-width: none;
+    }
+
+    .container {
+        margin-top: 2em !important;
+    }
+
+    .btn.btn-link {
+        top: auto;
+        margin: 0;
+        left: 1em;
+        bottom: 1em !important;
+        position: absolute !important;
     }
 }

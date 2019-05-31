@@ -17,7 +17,7 @@ export interface RootViewDelegate {
 @Injectable()
 export class RootViewController implements RootViewDelegate, OnInit {
     // declare protected members
-    protected resources: any
+    public resources: any
     protected languageController: LanguageController
 
     protected titleService: Title
@@ -46,7 +46,7 @@ export class RootViewController implements RootViewDelegate, OnInit {
      * @param currentLanguage 
      * @returns Promise
      */
-    protected setCurrentLanguage(language: string) {
+    public setCurrentLanguage(language: string) {
         this.languageController.setCurrentLanguage(language)
     }
 

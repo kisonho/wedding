@@ -1,15 +1,17 @@
 {
-    "TITLE": "Wedding Invitation",
+    "TITLE": "YOU AND YOUR FAMILY ARE INVITED!",
     "content": {
-        "HEAD": "Dear ",
-        "COMMA": ",",
-        "CONTENT": "You and your family are invited! It's our pleasure to have you join our big day!",
-        "ADDRESS": "Address: Addison Oaks Buhl Estate (1480 W Romeo Rd, Oakland, MI  48367)",
-        "TIME": "Time: welcome guests from 4:50 PM (ceremony starting from 5:20 PM)",
-        "ACCEPT": "If you accept our invitation, please click the button below to fill out your guest information:"
+        "MONTH": "July",
+        "DAY": "20",
+        "YEAR": "2019",
+        "ADDRESS": "Addison Oaks Buhl Estate",
+        "ADDRESS_DETAIL": "1480 W Romeo Rd, Oakland, MI 48367",
+        "TIME": "4:50 PM",
+        "ACCEPT": "-- Reception to Follow --",
+        "RSVP": "Please click the button below to RSVP"
     },
     "form": {
-        "BUTTON_TXT": "Guest Form",
+        "BUTTON_TXT": "RSVP Form",
         "LINK": "https://docs.google.com/forms/d/e/1FAIpQLSfsnI9uO8Co54_gbWfmYWWPRwHqpHcrAYtt33CImXCpD9mSUQ/viewform?usp=sf_link"
     },
     "pictures": {
