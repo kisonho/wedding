@@ -149,6 +149,7 @@ body{
 #bookView.open {
     right: 10%;
     transition: 1s;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) !important;
 }
 #bookView .page{
     position: absolute;
@@ -261,16 +262,16 @@ body{
     z-index: -2;
     bottom: -10px;
     border-radius: 70%;
-    box-shadow: 0px 0px 25px 15px rgba(0,0,0,0.8);
+    /* box-shadow: 0px 0px 25px 15px rgba(0,0,0,0.8); */
 }
 #bookView.chrome::after {
     width: 25em;
 }
 .btn.btn-link {
-    color: red;
     position: absolute;
+    color: red;
     top: 2em;
-    margin-left: 2em;
+    right: 3em;
     font-weight: 800;
     font-size: 1.5em;
 }
@@ -282,10 +283,6 @@ body{
 }
 
 @media (max-width: 767px) {
-    div#background {
-        background: none;
-    }
-
     #bookView{
         overflow-x: hidden;
         position: relative;
@@ -312,18 +309,30 @@ body{
         z-index: -2;
         bottom: -10px;
         border-radius: 70%;
-        box-shadow: 0px 0px 25px 15px rgba(0,0,0,0.8);
+        /* box-shadow: 0px 0px 25px 15px rgba(0,0,0,0.8); */
+    }
+
+    #bookView #coverView {
+        margin-top: 25%;
+        background-size: 100% auto !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+    #bookView #coverView img {
+        width: 100% !important;
+        height: auto !important;
     }
 
     #bookView .contentBackground {
-        width: auto !important;
-        background-size: 100%;
+        margin-top: 25%;
+        width: 100% !important;
+        height: auto !important;
+        background-size: 100% auto !important;
     }
 
     #bookView .contentBackground img {
-        width: auto !important;
-        height: 100% !important;
-        min-height: 102vh;
+        width: 100% !important;
+        height: auto !important;
     }
 
     #bookView .page{
@@ -340,19 +349,33 @@ body{
 
     #bookView .page .container {
         margin: 0;
-        font-size: 1.25em;
+        font-size: 1em;
         padding: 0;
         max-width: none;
     }
 
     .container {
-        margin-top: 2em !important;
+        margin-top: 30% !important;
+    }
+    
+    .container h1 {
+        font-size: 1.2em;
+        vertical-align: center;
+        font-family: fantasy;
+    }
+    .container h1 .large {
+        font-size: 1.2em;
+    }
+
+    .btn.btn-danger {
+        margin-top: -1em;
     }
 
     .btn.btn-link {
         top: auto;
         margin: 0;
         left: 1em;
+        right: auto;
         bottom: 1em !important;
         position: absolute !important;
     }

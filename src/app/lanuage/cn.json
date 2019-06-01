@@ -1,13 +1,14 @@
 {
-    "TITLE": "邀请信",
+    "TITLE": "何祁圣 & 李书潇",
     "content": {
-        "HEAD": "你好 ",
-        "COMMA": "，",
-        "CONTENT": "欢迎来参加我们的婚礼！",
-        "ADDRESS": "地址：Addison Oaks Buhl Estate (1480 W Romeo Rd, Oakland, MI  48367)",
-        "TIME": "时间：welcome guests from 4:50 PM (ceremony starting from 5:20 PM)",
-        "ACCEPT": "包含晚餐！",
-        "RSVP": "请点击下面的按钮来回复："
+        "MONTH": "七月",
+        "DAY": "20",
+        "YEAR": "2019年",
+        "ADDRESS": "Addison Oaks Buhl Estate",
+        "ADDRESS_DETAIL": "1480 W Romeo Rd, Oakland, MI 48367",
+        "TIME": "下午 4点50分",
+        "ACCEPT": "-- 诚邀您与您的家人来参加仪式及晚宴 --",
+        "RSVP": "请点击下面的按钮来填写宾客信息表"
     },
     "form": {
         "BUTTON_TXT": "宾客信息表",

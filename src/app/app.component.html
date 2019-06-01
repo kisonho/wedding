@@ -31,7 +31,7 @@
                 <div>
                     <span>{{resources.content.TIME}}</span>
                 </div>
-                <br>
+                <br class="d-block d-xs-none">
                 <div class="col-xs-12">
                     <h2>{{resources.content.ACCEPT}}</h2>
                     <small>{{resources.content.RSVP}}</small>
@@ -48,7 +48,7 @@
                 <img [src]="resources.pictures.BACKGROUND" class="d-block d-md-none d-lg-none d-xl-none">
             </div>
         </div>
-        <div id="coverView" class="d-none d-md-block d-lg-block d-xl-block page" (click)="bookOnClick()">
+        <div id="coverView" class="page" (click)="bookOnClick()">
             <img [src]="resources.pictures.COVER"/>
         </div>
     </div>
